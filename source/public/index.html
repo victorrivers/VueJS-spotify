@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Spotify with Vue.js</title>
+		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+	</head>
+	<body>
+		<div class="container">
+			<h1>Spotify with Vue.js</h1>
+		  	<div id="login">
+				<a href="/login" class="btn btn-primary">Log in with Spotify</a>
+		  	</div>      
+		</div>
+		
+		<div id="playlists-container">
+			<ol>
+				<li v-for="playlist in playlists">
+			  		{{ playlist.name }}
+				</li>
+			</ol>
+		</div>
+
+		<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+		<script src="script/vue.js"></script>
+		
+		<script src="script/dataservice.js"></script>
+		<script src="script/init.js"></script>
+		
+	</body>
+</html>
