@@ -30,14 +30,11 @@
 			
 			dataService.init(access_token);
 			
+			dataService.getNewReleases();
+			
 			dataService.getPlaylists(function(response){
-				console.log(response);
-				var vm = new Vue({
-					el: '#playlists-container',
-					data: {
-						playlists: response.playlists.items
-					}
-				});
+				viewmodels.playlistsVm.playlists = response.playlists.items;
+				viewmodels.playlistsVm.show = true;
 			});
 			
 		} else {

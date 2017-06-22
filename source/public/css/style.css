@@ -1,0 +1,24 @@
+.content-header {
+    display: flex;
+    align-items: center;
+}
+
+.login-button {
+	padding-left: 50px;
+}
+
+.main-content {
+    display: flex;
+    justify-content: center;
+}
+
+.loading-content {
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.playlists-container,
+.new-releases-container {
+	width: 50%;
+}

@@ -1,28 +1,50 @@
 <!doctype html>
 <html>
 	<head>
+		<meta charset="UTF-8">
 		<title>Spotify with Vue.js</title>
 		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+		
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
 	</head>
 	<body>
 		<div class="container">
-			<h1>Spotify with Vue.js</h1>
-		  	<div id="login">
-				<a href="/login" class="btn btn-primary">Log in with Spotify</a>
-		  	</div>      
+			<header class="content-header">
+				<h1>Spotify with Vue.js</h1>
+				<div class="login-button" id="login">
+					<a href="/login" class="btn btn-primary">Log in</a>
+				</div>      
+			</header>
 		</div>
 		
-		<div id="playlists-container">
-			<ol>
-				<li v-for="playlist in playlists">
-			  		{{ playlist.name }}
-				</li>
-			</ol>
-		</div>
+		<section class="main-content">
+			<div class="new-releases-container">
+				<h4>NEW RELEASES:</h4>
+				<div v-if="!show" class="loading-content">...</div>
+				<ol v-if="show">
+					<li v-for="album in albums">
+						<span>{{ album.name }}</span>
+						<span>{{ album.artists }}</span>
+						<img v-bind:src="album.image.url">
+					</li>
+				</ol>
+			</div>
+			
+			<div class="playlists-container">
+				<h4>FEATURED PLAYLISTS:</h4>
+				<div v-if="!show" class="loading-content">...</div>
+				<ol v-if="show">
+					<li v-for="playlist in playlists">
+						{{ playlist.name }}
+					</li>
+				</ol>
+			</div>	
+		</section>
 
 		<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 		<script src="script/vue.js"></script>
 		
+		<script src="script/viewmodels.js"></script>
 		<script src="script/dataservice.js"></script>
 		<script src="script/init.js"></script>
 		
