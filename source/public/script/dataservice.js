@@ -20,8 +20,8 @@ var dataService = {};
 						name: item.name,
 						artists: item.artists.map(function(artist) {
 							return artist.name;
-						}).join(),
-						image: item.images[2] || { url: null }
+						}).join(', '),
+						image: item.images[1] || { url: null }
 					})
 				});
 				
@@ -31,17 +31,23 @@ var dataService = {};
 
 				viewmodels.newReleasesVm.albums = albums;
 				viewmodels.newReleasesVm.show = true;
+				
+				viewmodels.albumsVm.albums = response.albums.items;
+				viewmodels.albumsVm.show = true;
 			}
 		});
 	};
 	
-	dataService.getPlaylists = (callback) => {
+	dataService.getPlaylists = () => {
 		$.ajax({
 			url: 'https://api.spotify.com/v1/browse/featured-playlists',
 			headers: {
 				'Authorization': 'Bearer ' + access_token
 			},
-			success: callback
+			success: (response) => {
+				viewmodels.playlistsVm.playlists = response.playlists.items;
+				viewmodels.playlistsVm.show = true;
+			}
 		});
 	};
 	

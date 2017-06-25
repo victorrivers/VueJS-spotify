@@ -18,4 +18,11 @@ var viewmodels = {};
 		}
 	});
 	
+	viewmodels.albumsVm = new Vue({
+		el: '.albums-container',
+		data: {
+			albums: [],
+			show: false
+		}
+	});
 })();

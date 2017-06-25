@@ -32,10 +32,7 @@
 			
 			dataService.getNewReleases();
 			
-			dataService.getPlaylists(function(response){
-				viewmodels.playlistsVm.playlists = response.playlists.items;
-				viewmodels.playlistsVm.show = true;
-			});
+			dataService.getPlaylists();
 			
 		} else {
 		  // render initial screen
