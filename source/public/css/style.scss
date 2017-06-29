@@ -1,0 +1,73 @@
+html {
+	height: 100%;
+}
+
+.body-container {
+	display: flex;
+    flex-direction: column;
+    height: 100%;
+	
+	.header-container {
+		display: flex;
+		align-items: center;
+		
+		.login-button {
+			padding-left: 50px;
+		}
+	}
+	
+	.top-container {
+    	display: flex;
+		flex: 1;
+		
+		.nav-bar-container {
+			width: 200px;
+			background: gainsboro;
+
+			.navBar {
+				.logoSVG,
+				.searchSVG {
+					height: 24px;
+					width: 24px;
+				}
+			}
+		}
+		
+		.main-view-container {
+			flex: 1;
+			
+			.menu-container {
+				.menu {
+					display: flex;
+					justify-content: space-around;
+					background-color: lightskyblue;
+					font-family: monospace;
+					font-weight: bold;
+
+					.menu-item {
+						display: inline-block;
+						
+						a {
+							color: #000;
+							cursor: pointer;
+							
+							&:hover {
+								text-decoration: none;
+							}
+							
+						}
+					}
+				}
+			}
+			
+			.view-container {
+				display: flex;
+				
+				.view-content {
+					background-color: #a5c9ff;
+					flex: 1;
+				}
+			}
+		}
+	}
+}
