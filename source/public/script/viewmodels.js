@@ -18,13 +18,13 @@ var viewmodels = {};
 				template: '<div class="view-content">Featured content</div>'
 			},
 			genresAndMoods: {
-				template: '<div class="view-content">GENRES & MOODS!</div>'
+				template: '<div class="view-content">Genres and moods content</div>'
 			},
 			newReleases: {
 				template: '<div class="view-content">New relases content</div>'
 			},
 			discover: {
-				template: '<div class="view-content">Discover</div>'
+				template: '<div class="view-content">Discover content</div>'
 			}
 		},
 		methods: {
@@ -35,29 +35,5 @@ var viewmodels = {};
 			}
 		}
 	});
-	
-	viewmodels.newReleasesVm = new Vue({
-		el: '.new-releases-container',
-		data: {
-			albums: [],
-			show: false
-		}
-	});
-	
-	viewmodels.playlistsVm = new Vue({
-		el: '.playlists-container',
-		data: {
-			playlists: [],
-			show: false
-		}
-	});
-	
-	viewmodels.albumsVm = new Vue({
-		el: '.albums-container',
-		data: {
-			albums: [],
-			show: false
-		}
-	});
-	
+
 })();
