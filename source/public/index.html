@@ -51,20 +51,34 @@
 					</ul>
 				</nav>			
 				
-				<section class="view-container">
-					<component v-bind:is="currentView">
-					</component>
+				<section class="view-container">					
+					<keep-alive>
+						<component v-bind:is="currentView">
+						<!-- inactive components will be cached! -->
+						</component>
+					</keep-alive>
 				</section>
 			</div>
 			
 		</div>
-
+		
+		<script type="text/x-template" id="view-content-template">
+	  		<div class="view-content">
+				<h1>{{title}}</h1>
+				<ul>
+					<li v-for="item in items">
+					ITEM
+					</li>
+				</ul>
+			</div>
+		</script>
+		
 		<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 		<script src="script/vue.js"></script>
-		
-		<script src="script/viewmodels.js"></script>
-		<script src="script/dataservice.js"></script>
+
+		<script src="script/dataservice.js"></script>		
 		<script src="script/init.js"></script>
+		<script src="script/viewmodels.js"></script>
 		
 	</body>
 </html>

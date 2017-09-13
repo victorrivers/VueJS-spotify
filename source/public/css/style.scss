@@ -33,7 +33,7 @@ html {
 	display: flex;
     flex-direction: column;
     height: 100%;
-	background-image: linear-gradient(rgb(38, 115, 102), rgb(3, 11, 10) 85%);
+	background-image: linear-gradient(rgb(67, 65, 69), rgb(7, 7, 7) 85%);
 	
 	.header-container {
 		display: flex;
@@ -105,8 +105,7 @@ html {
 				padding: 50px 0 20px;
 				
 				.menu {
-					display: flex;
-					justify-content: center;					
+					text-align: center;
 					font-size: 0.9em;
     				letter-spacing: 1px;
 
@@ -116,18 +115,28 @@ html {
 						.menu-item__link {
 							cursor: pointer;
 							padding: 20px;
+							color: #a0a0a0;
+    						transition: color .2s;
 							
 							&:hover {
 								text-decoration: none;
 							}
 							
-							&.active::after {
-								content: "";
-								height: 2px;
-								width: 18px;
+							&.active {
 								display: block;
 								margin: 0 auto;
-								background-color: #1ed760;
+								color: #FFF;
+								
+								&::after {
+									content: "";
+									height: 2px;
+									background-color: #1ed760;
+									width: 18px;
+									position: relative;
+									top: 2px;
+									display: block;
+									margin: 0 auto;
+								}
 							}
 						}
 					}

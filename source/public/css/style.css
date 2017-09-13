@@ -23,7 +23,7 @@ html {
   display: flex;
   flex-direction: column;
   height: 100%;
-  background-image: linear-gradient(#267366, #030b0a 85%); }
+  background-image: linear-gradient(#434145, #070707 85%); }
   .body-container .header-container {
     display: flex;
     align-items: center; }
@@ -67,24 +67,31 @@ html {
       .body-container .top-container .main-view-container .menu-container {
         padding: 50px 0 20px; }
         .body-container .top-container .main-view-container .menu-container .menu {
-          display: flex;
-          justify-content: center;
+          text-align: center;
           font-size: 0.9em;
           letter-spacing: 1px; }
           .body-container .top-container .main-view-container .menu-container .menu .menu-item {
             display: inline-block; }
             .body-container .top-container .main-view-container .menu-container .menu .menu-item .menu-item__link {
               cursor: pointer;
-              padding: 20px; }
+              padding: 20px;
+              color: #a0a0a0;
+              transition: color .2s; }
               .body-container .top-container .main-view-container .menu-container .menu .menu-item .menu-item__link:hover {
                 text-decoration: none; }
-              .body-container .top-container .main-view-container .menu-container .menu .menu-item .menu-item__link.active::after {
-                content: "";
-                height: 2px;
-                width: 18px;
+              .body-container .top-container .main-view-container .menu-container .menu .menu-item .menu-item__link.active {
                 display: block;
                 margin: 0 auto;
-                background-color: #1ed760; }
+                color: #FFF; }
+                .body-container .top-container .main-view-container .menu-container .menu .menu-item .menu-item__link.active::after {
+                  content: "";
+                  height: 2px;
+                  background-color: #1ed760;
+                  width: 18px;
+                  position: relative;
+                  top: 2px;
+                  display: block;
+                  margin: 0 auto; }
       .body-container .top-container .main-view-container .view-container {
         display: flex;
         flex: 1; }

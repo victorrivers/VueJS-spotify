@@ -1,5 +1,3 @@
-var viewmodels = {};
-
 (function(){
 	
 	var viewSelectorVm = new Vue({
@@ -15,25 +13,48 @@ var viewmodels = {};
 		},
 		components: {
 			featured: {
-				template: '<div class="view-content">Featured content</div>'
+				data: function() {
+					return {
+						title: 'Featured content',
+						items: dataService.featuredPlaylists
+					};
+				},
+				template: '#view-content-template'
 			},
 			genresAndMoods: {
-				template: '<div class="view-content">Genres and moods content</div>'
+				data: function() {
+					return {
+						title: 'Genres and moods content',
+						items: []
+					};
+				},
+				template: '#view-content-template'
 			},
 			newReleases: {
-				template: '<div class="view-content">New relases content</div>'
+				data: function() {
+					return {
+						title: 'New relases content',
+						items: []
+					};
+				},
+				template: '#view-content-template'
 			},
 			discover: {
-				template: '<div class="view-content">Discover content</div>'
+				data: function() {
+					return {
+						title: 'Discover content',
+						items: []
+					};
+				},
+				template: '#view-content-template'
 			}
 		},
 		methods: {
-			updateView: function (view) {
-				if (view !== this.currentView) {
-					this.currentView = view;
+			updateView: function (key) {
+				if (key !== this.currentView) {
+					this.currentView = key;
 				}
 			}
 		}
 	});
-
 })();
