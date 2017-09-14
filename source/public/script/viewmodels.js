@@ -1,5 +1,5 @@
 (function(){
-	
+
 	var viewSelectorVm = new Vue({
 		el: '.main-view-container',
 		data: {
@@ -13,40 +13,49 @@
 		},
 		components: {
 			featured: {
+				template: '#view-content-template',
 				data: function() {
 					return {
-						title: 'Featured content',
-						items: dataService.featuredPlaylists
+						items: []
 					};
 				},
-				template: '#view-content-template'
+				mounted: function () {
+					dataService.getfeaturedPlaylists((data) => {
+						this.items = data;
+					});
+				}
 			},
 			genresAndMoods: {
+				template: '#view-content-template',
 				data: function() {
 					return {
 						title: 'Genres and moods content',
 						items: []
 					};
 				},
-				template: '#view-content-template'
+				activated: function () {
+					if (this.items.length === 0) {
+						// Fetch data
+					}
+				}
 			},
 			newReleases: {
+				template: '#view-content-template',
 				data: function() {
 					return {
 						title: 'New relases content',
 						items: []
 					};
-				},
-				template: '#view-content-template'
+				}
 			},
 			discover: {
+				template: '#view-content-template',
 				data: function() {
 					return {
 						title: 'Discover content',
 						items: []
 					};
-				},
-				template: '#view-content-template'
+				}
 			}
 		},
 		methods: {
@@ -57,4 +66,10 @@
 			}
 		}
 	});
+	
+	/*
+	dataService.getfeaturedPlaylists((data) => {
+		viewSelectorVm.$options.components.featured.data().items = data;
+		console.log(viewSelectorVm.$options.components.featured.data().items);
+	});*/
 })();

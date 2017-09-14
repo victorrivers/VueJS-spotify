@@ -1,10 +1,7 @@
-var dataService = {
-	featuredPlaylists: []
-};
+var dataService = {};
 
 (function(){
-	var access_token,
-		featuredPlaylists = {};
+	var access_token;
 	
 	dataService.init = (token) => {
 		access_token = token;
@@ -37,19 +34,16 @@ var dataService = {
 		return dataService.newReleases;		
 	};
 	
-	dataService.getfeaturedPlaylists = () => {
-	
-		if (dataService.featuredPlaylists.length === 0) {
-			$.ajax({
-				url: 'https://api.spotify.com/v1/browse/featured-playlists',
-				headers: {
-					'Authorization': 'Bearer ' + access_token
-				},
-				success: (response) => {
-					dataService.featuredPlaylists = response.playlists.items;
-				}
-			});
-		}
+	dataService.getfeaturedPlaylists = (callback) => {
+		$.ajax({
+			url: 'https://api.spotify.com/v1/browse/featured-playlists',
+			headers: {
+				'Authorization': 'Bearer ' + access_token
+			},
+			success: (response) => {
+				callback(response.playlists.items);
+			}
+		});
 	}
 	
 })();

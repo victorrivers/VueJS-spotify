@@ -35,33 +35,40 @@
 
 	var access_token = params.access_token,
 	state = params.state,
-	storedState = localStorage.getItem(stateKey);
+	storedState = sessionStorage.getItem(stateKey);
 
-	if (access_token && (state == null || state !== storedState)) {
-		alert('There was an error during the authentication');
-	} else {
-		localStorage.removeItem(stateKey);
-		if (access_token) {			
-			dataService.init(access_token);
-			dataService.getfeaturedPlaylists();
+	function authenticate() {
+		sessionStorage.removeItem(stateKey);
+		
+		var client_id = 'ccd2c2d81a754c998437948b0e05334b'; // Your client id
+		var redirect_uri = 'http://localhost:8888'; // Your redirect uri
+
+		var state = generateRandomString(16);
+
+		sessionStorage.setItem(stateKey, state);
+		var scope = 'user-read-private user-read-email';
+
+		var url = 'https://accounts.spotify.com/authorize';
+		url += '?response_type=token';
+		url += '&client_id=' + encodeURIComponent(client_id);
+		url += '&scope=' + encodeURIComponent(scope);
+		url += '&redirect_uri=' + encodeURIComponent(redirect_uri);
+		url += '&state=' + encodeURIComponent(state);
+
+		window.location = url;
+	}
+	
+	if (access_token) {
+		if (state == null) {
+			console.log('%c Re-authenticating...', 'color: #F00;');
+			authenticate();
+		} else if (state !== storedState) {
+			sessionStorage.removeItem(stateKey);
+			sessionStorage.setItem(stateKey, state);
 		} else {
-
-			var client_id = 'ccd2c2d81a754c998437948b0e05334b'; // Your client id
-			var redirect_uri = 'http://localhost:8888'; // Your redirect uri
-
-			var state = generateRandomString(16);
-
-			localStorage.setItem(stateKey, state);
-			var scope = 'user-read-private user-read-email';
-
-			var url = 'https://accounts.spotify.com/authorize';
-			url += '?response_type=token';
-			url += '&client_id=' + encodeURIComponent(client_id);
-			url += '&scope=' + encodeURIComponent(scope);
-			url += '&redirect_uri=' + encodeURIComponent(redirect_uri);
-			url += '&state=' + encodeURIComponent(state);
-
-			window.location = url;
+			dataService.init(access_token);
 		}
+	} else {
+		authenticate();
 	}
 })();

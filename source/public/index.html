@@ -51,11 +51,11 @@
 					</ul>
 				</nav>			
 				
-				<section class="view-container">					
+				<section class="view-container">
 					<keep-alive>
 						<component v-bind:is="currentView">
 						<!-- inactive components will be cached! -->
-						</component>
+						</component>	
 					</keep-alive>
 				</section>
 			</div>
@@ -65,9 +65,10 @@
 		<script type="text/x-template" id="view-content-template">
 	  		<div class="view-content">
 				<h1>{{title}}</h1>
-				<ul>
-					<li v-for="item in items">
-					ITEM
+				<ul class="featured-playlist">
+					<li class="featured-playlist-item" v-for="item in items">
+						<img class="playlist-image" v-bind:src="item.images[0].url">
+						<span class="playlist-name">{{item.name}}</span>
 					</li>
 				</ul>
 			</div>

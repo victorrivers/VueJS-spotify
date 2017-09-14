@@ -97,7 +97,18 @@ html {
         flex: 1; }
         .body-container .top-container .main-view-container .view-container .view-content {
           flex: 1;
-          padding: 20px;
-          font-size: 40px; }
+          padding: 20px; }
+          .body-container .top-container .main-view-container .view-container .view-content .featured-playlist {
+            list-style-type: none;
+            margin: 0;
+            padding: 0; }
+            .body-container .top-container .main-view-container .view-container .view-content .featured-playlist .featured-playlist-item {
+              padding: 4px 0; }
+              .body-container .top-container .main-view-container .view-container .view-content .featured-playlist .featured-playlist-item .playlist-image {
+                height: 50px;
+                width: 50px; }
+              .body-container .top-container .main-view-container .view-container .view-content .featured-playlist .featured-playlist-item .playlist-name {
+                padding: 0 10px;
+                font-size: 18px; }
 
 /*# sourceMappingURL=style.css.map */

@@ -150,7 +150,26 @@ html {
 				.view-content {					
 					flex: 1;
 					padding: 20px;
-					font-size: 40px;
+					
+					.featured-playlist {
+						list-style-type: none;
+						margin: 0;
+						padding: 0;
+						
+						.featured-playlist-item {
+							padding: 4px 0;
+							
+							.playlist-image {
+								height: 50px;
+								width: 50px;
+							}
+
+							.playlist-name {
+								padding: 0 10px;
+								font-size: 18px;
+							}	
+						}
+					}
 				}
 			}
 		}
