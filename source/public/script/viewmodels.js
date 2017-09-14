@@ -16,6 +16,7 @@
 				template: '#view-content-template',
 				data: function() {
 					return {
+						title: 'Featured playlists',
 						items: []
 					};
 				},
